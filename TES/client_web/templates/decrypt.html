@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<section id="decrypt-section" class="card active-tab">
+    <h2 class="section-title">Giải mã File AES (Server Side)</h2>
+    <p class="section-description">Đây là kết quả file được giải mã từ Server sau khi bạn gửi đi. Server sẽ xử lý việc giải mã và gửi lại kết quả.</p>
+
+    <div id="clientStatus" class="status-message" style="margin-bottom: 20px;">Chờ kết quả từ server...</div>
+    
+    <div id="serverDecryptionResult">
+        <div id="serverDecryptedOutputText" class="decrypted-content text-content" style="display: none;"></div>
+        <img id="serverDecryptedOutputImage" class="decrypted-content image-content" style="display: none;" alt="Decrypted Image">
+        <button id="downloadServerDecryptedButton" class="action-button secondary-button" style="display: none;">Tải file đã giải mã</button>
+    </div>
+
+    <div class="process-flow">
+        <h3>Lưu ý về quy trình:</h3>
+        <p>
+            <span class="step-icon">✓</span> Trang này hiển thị kết quả **sau khi server đã giải mã** thành công.
+            Nếu có lỗi giải mã, thông báo lỗi sẽ xuất hiện thay vì nội dung file.
+        </p>
+        <p>
+            <span class="step-icon">⚠</span> Trong một ứng dụng thực tế, việc giải mã file nhạy cảm nên được thực hiện trên client để đảm bảo tính riêng tư của dữ liệu, trừ khi server là một dịch vụ đáng tin cậy. Ở đây, chúng ta đang thực hiện cả mã hóa và giải mã trên server để minh họa luồng truyền file qua Socket.IO.
+        </p>
+    </div>
+</section>
+{% endblock %}

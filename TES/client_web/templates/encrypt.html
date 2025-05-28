@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<section id="encrypt-section" class="card active-tab">
+    <h2 class="section-title">Mã hóa File AES (Client Side)</h2>
+    <p class="section-description">Chọn một file để mã hóa và nhập khóa. File sẽ được mã hóa bằng AES-256 (CBC mode, PKCS7 padding) trên trình duyệt của bạn và gửi dữ liệu đã mã hóa lên server qua Socket.IO.</p>
+    
+    <div class="input-group">
+        <label for="clientFileInput">Chọn File:</label>
+        <input type="file" id="clientFileInput" class="file-input">
+    </div>
+    
+    <div class="input-group">
+        <label for="clientKeyCode">Nhập Khóa (Key):</label>
+        <input type="password" id="clientKeyCode" class="text-input" placeholder="Nhập khóa để mã hóa (ví dụ: mysecretkey123)">
+    </div>
+    
+    <button id="encryptAndSendButton" class="action-button primary-button">Mã hóa & Gửi lên Server</button>
+    
+    <div id="clientStatus" class="status-message">Chờ kết nối...</div>
+
+    <div class="process-flow">
+        <h3>Quy trình truyền file AES:</h3>
+        <p>
+            <span class="step-icon">1</span> **Client (Trình duyệt):**
+            File được chọn từ máy client.
+            <span class="highlight-text">CryptoJS</span> mã hóa file bằng AES-256 (CBC mode, PKCS7 padding), tạo ra Ciphertext và IV (Initialization Vector).
+            Ciphertext và IV được mã hóa Base64 và gửi lên server qua <span class="highlight-text">Socket.IO</span>.
+        </p>
+        <p>
+            <span class="step-icon">2</span> **Server (Flask-SocketIO):**
+            Nhận Ciphertext, IV và Key từ client.
+            Sử dụng <span class="highlight-text">PyCryptodome</span> để giải mã dữ liệu với Key và IV tương ứng.
+            Kết quả giải mã được gửi lại client.
+        </p>
+    </div>
+</section>
+{% endblock %}

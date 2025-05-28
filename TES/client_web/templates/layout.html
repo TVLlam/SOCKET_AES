@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mã hóa/Giải mã AES qua Socket.IO</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="app-title">
+                <span class="highlight">SECURE</span> FILE TRANSFER <span class="highlight-alt">AES</span>
+            </h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="/encrypt" class="nav-link {% if request.path == '/encrypt' %}active{% endif %}">Mã hóa File</a></li>
+                    <li><a href="/decrypt" class="nav-link {% if request.path == '/decrypt' %}active{% endif %}">Giải mã File</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="content-area">
+            {% block content %}{% endblock %}
+        </main>
+
+        <footer class="footer">
+            <p>Nhập môn An toàn Bảo mật Thông tin. Client-Server AES Encryption.</p>
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.0/socket.io.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

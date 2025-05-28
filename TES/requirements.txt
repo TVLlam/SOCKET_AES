@@ -1,0 +1,5 @@
+Flask
+Flask-SocketIO
+PyCryptodome
+python-socketio[client]
+eventlet # hoặc gevent, tùy thuộc vào cách bạn chạy SocketIO
