@@ -26,14 +26,14 @@
 <h2>🖼️ Giao diện người dùng</h2>
 <p>Người dùng có thể chọn file, nhập khóa AES và gửi yêu cầu mã hóa hoặc giải mã.</p>
 
-<img src="https://via.placeholder.com/800x400.png?text=Giao+diện+Mã+Hóa+File" alt="Encrypt Interface">
+<img src="Screenshot 2025-05-28 141258.png" alt="Encrypt Interface">
 <br><br>
-<img src="https://via.placeholder.com/800x400.png?text=Giao+diện+Giải+Mã+File" alt="Decrypt Interface">
+<img src="Screenshot 2025-05-28 141319.png" alt="Decrypt Interface">
 
 <h2>🚀 Hướng dẫn chạy ứng dụng</h2>
 
 <pre>
-git clone https://github.com/yourusername/secure-aes-transfer.git
+git clone https://github.com/TVLlam/SOCKET_AES.git
 cd TES
 pip install -r requirements.txt
 python Server.py
